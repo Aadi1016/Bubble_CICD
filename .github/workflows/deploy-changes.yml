@@ -35,6 +35,6 @@ jobs:
       - name: Run the GIT DEPLOY command
         run: |
           cs_tools tools git branches deploy \
-          --branch-name ${{ env.TS_ENV_NAME }} \
+          --branch ${{ env.TS_ENV_NAME }} \
           --org ${{ env.TS_DESTINATION_ORG_ID }} \
           --config ENV:
