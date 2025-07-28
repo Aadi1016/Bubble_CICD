@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  CS_TOOLS_COMMIT: f3bc52a3d1d110aebd58977556ed0b121124eb08
+  CS_TOOLS_VERSION: v1.5.13b1
   CS_TOOLS_THOUGHTSPOT__URL: ${{ secrets.DEV_THOUGHTSPOT_URL }}
   CS_TOOLS_THOUGHTSPOT__USERNAME: ${{ secrets.DEV_THOUGHTSPOT_USERNAME }}
   CS_TOOLS_THOUGHTSPOT__SECRET_KEY: ${{ secrets.DEV_THOUGHTSPOT_SECRET_KEY }}
@@ -30,15 +30,13 @@ jobs:
           python-version: 3.12
 
       - name: Install CS Tools
-        run: |
-          pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/f3bc52a3d1d110aebd58977556ed0b121124eb08.zip"
-
+        run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
       - name: Run the GIT COMMIT command
-        run: |
-          cs_tools tools git branches commit \
-            --tag "${{ env.TS_OBJECT_TAG }}" \
-            --comment "${{ env.TS_COMMIT_MESSAGE }}" \
-            --org "${{ env.TS_SOURCE_ORG_ID }}" \
-            --config "ENV:${{ env.TS_ENV_NAME }}" \
-            --no-check
+        run: >
+          cs_tools tools git branches commit
+          --tag "${{ env.TS_OBJECT_TAG }}"
+          --comment "${{ env.TS_COMMIT_MESSAGE }}"
+          --org "${{ env.TS_SOURCE_ORG_ID }}"
+          --config ENV:${{ env.TS_ENV_NAME }}
+          --no-check
