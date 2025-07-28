@@ -33,5 +33,11 @@ jobs:
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
       - name: Run the GIT COMMIT command
-        run: "cs_tools tools git branches commit --tag ${{ env.TS_OBJECT_TAG }} --comment \"${{ env.TS_COMMIT_MESSAGE }}\" --org ${{ env.TS_SOURCE_ORG_ID }} --config ENV:${{ env.TS_ENV_NAME }} --no-check"
+        run: 
+          "cs_tools tools git branches commit 
+          --tag ${{ env.TS_OBJECT_TAG }} 
+          --comment \"${{ env.TS_COMMIT_MESSAGE }}\" 
+          --org ${{ env.TS_SOURCE_ORG_ID }} 
+          --config ENV:${{ env.TS_ENV_NAME }} 
+          --no-check"
 
