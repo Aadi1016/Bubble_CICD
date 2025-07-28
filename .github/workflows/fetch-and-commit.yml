@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  CS_TOOLS_VERSION: v1.5.13b1
+  CS_TOOLS_VERSION: v1.6.4
   CS_TOOLS_THOUGHTSPOT__URL: ${{ secrets.DEV_THOUGHTSPOT_URL }}
   CS_TOOLS_THOUGHTSPOT__USERNAME: ${{ secrets.DEV_THOUGHTSPOT_USERNAME }}
   CS_TOOLS_THOUGHTSPOT__SECRET_KEY: ${{ secrets.DEV_THOUGHTSPOT_SECRET_KEY }}
@@ -33,9 +33,12 @@ jobs:
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
       - name: Run the GIT COMMIT command
-        run: >
-          cs_tools tools git branches commit
-          --tag ${{ env.TS_OBJECT_TAG }}
-          --comment "${{ env.TS_COMMIT_MESSAGE }}"
-          --org ${{ env.TS_SOURCE_ORG_ID }}
+        run: |
+          cs_tools tools git branches commit \
+          --tags "${{ env.TS_OBJECT_TAG }}" \
+          --comment "${{ env.TS_COMMIT_MESSAGE }}" \
+          --org "${{ env.TS_SOURCE_ORG_ID }}" \
+          --metadata-types "TABLE,LIVEBOARD,SQL_VIEW,MODEL,ANSWER" \
           --config ENV:
+  
+          
