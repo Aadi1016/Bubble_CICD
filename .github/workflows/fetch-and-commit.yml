@@ -39,3 +39,4 @@ jobs:
           --comment "${{ env.TS_COMMIT_MESSAGE }}"
           --org ${{ env.TS_SOURCE_ORG_ID }}
           --config ENV:
+          --no-check
