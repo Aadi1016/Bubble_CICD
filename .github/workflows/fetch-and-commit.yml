@@ -35,7 +35,7 @@ jobs:
       - name: Run the GIT COMMIT command
         run: |
           cs_tools tools git branches commit \
-          --tag "${{ env.TS_OBJECT_TAG }}" \
+          --tags "${{ env.TS_OBJECT_TAG }}" \
           --comment "${{ env.TS_COMMIT_MESSAGE }}" \
           --org "${{ env.TS_SOURCE_ORG_ID }}" \
           --config ENV:
