@@ -14,7 +14,7 @@ on:
     types: [opened, synchronize]
 
 env:
-  CS_TOOLS_VERSION: v1.5.13b1
+  CS_TOOLS_VERSION: v1.6.4
   CS_TOOLS_THOUGHTSPOT__URL: ${{ secrets.DEV_THOUGHTSPOT_URL }}
   CS_TOOLS_THOUGHTSPOT__USERNAME: ${{ secrets.DEV_THOUGHTSPOT_USERNAME }}
   CS_TOOLS_THOUGHTSPOT__SECRET_KEY: ${{ secrets.DEV_THOUGHTSPOT_SECRET_KEY }}
@@ -38,4 +38,8 @@ jobs:
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
       - name: Run the GIT VALIDATE command
-        run: cs_tools tools git branches validate --source_branch ${{ env.TS_SOURCE_ENV_NAME }} --target_branch ${{ env.TS_TARGET_ENV_NAME }} --config ENV:${{ env.TS_SOURCE_ENV_NAME }}
+        run: |
+          cs_tools tools git branches validate \
+          --source_branch ${{ env.TS_SOURCE_ENV_NAME }} \
+          --target_branch ${{ env.TS_TARGET_ENV_NAME }} \
+          --config ENV:
