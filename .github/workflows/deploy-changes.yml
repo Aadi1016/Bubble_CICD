@@ -1,0 +1,40 @@
+name: Deploy Changes
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+
+env:
+  CS_TOOLS_VERSION: v1.6.4
+  CS_TOOLS_THOUGHTSPOT__URL: ${{ secrets.PRD_THOUGHTSPOT_URL }}
+  CS_TOOLS_THOUGHTSPOT__USERNAME: ${{ secrets.PRD_THOUGHTSPOT_USERNAME }}
+  CS_TOOLS_THOUGHTSPOT__SECRET_KEY: ${{ secrets.PRD_THOUGHTSPOT_SECRET_KEY }}
+
+  TS_ENV_NAME: ts-prod
+  TS_DESTINATION_ORG_ID: 1911636566
+
+jobs:
+  run_deploy_api:
+    if: github.event.pull_request.merged && github.event.pull_request.base.ref == 'ts-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ${{ env.TS_ENV_NAME }} branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TS_ENV_NAME }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install CS Tools
+        run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
+
+      - name: Run the GIT DEPLOY command
+        run: |
+          cs_tools tools git branches deploy \
+          --branch-name ${{ env.TS_ENV_NAME }} \
+          --org ${{ env.TS_DESTINATION_ORG_ID }} \
+          --config ENV:
