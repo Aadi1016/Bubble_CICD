@@ -16,7 +16,12 @@ env:
 
 jobs:
   run_deploy_api:
-    if: github.event.pull_request.merged && github.event.pull_request.base.ref == 'ts-prod'
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' &&
+      github.event.pull_request.merged &&
+      github.event.pull_request.base.ref == 'ts-prod')
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ${{ env.TS_ENV_NAME }} branch
