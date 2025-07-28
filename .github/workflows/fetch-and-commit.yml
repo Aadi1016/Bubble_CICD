@@ -38,5 +38,7 @@ jobs:
           --tags "${{ env.TS_OBJECT_TAG }}" \
           --comment "${{ env.TS_COMMIT_MESSAGE }}" \
           --org "${{ env.TS_SOURCE_ORG_ID }}" \
+          --metadata-types "TABLE,LIVEBOARD,SQL_VIEW,MODEL,ANSWER"
           --config ENV:
-          --no-check
+  
+          
