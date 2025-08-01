@@ -32,6 +32,10 @@ jobs:
       - name: Install CS Tools
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
+      - name: Clean existing TML files
+        run: |
+          find . -type f -name "*.tml" -delete
+
       - name: Run the GIT COMMIT command
         run: |
           cs_tools tools git branches commit \
