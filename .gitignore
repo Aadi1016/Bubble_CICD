@@ -1,0 +1,3 @@
+# Ignore CS Tools generated folders
+*.commit/
+*.mapping/
