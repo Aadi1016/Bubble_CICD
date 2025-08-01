@@ -37,6 +37,7 @@ jobs:
           cs_tools tools git branches commit \
           --tags "${{ env.TS_OBJECT_TAG }}" \
           --comment "${{ env.TS_COMMIT_MESSAGE }}" \
+          --delete-aware \
           --org "${{ env.TS_SOURCE_ORG_ID }}" \
           --metadata-types "TABLE,LIVEBOARD,SQL_VIEW,MODEL,ANSWER" \
           --config ENV:
