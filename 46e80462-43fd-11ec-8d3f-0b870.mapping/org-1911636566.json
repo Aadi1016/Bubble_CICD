@@ -1,0 +1,10 @@
+[ {
+  "originalGuid" : "ad08ca77-7585-497e-ae9a-726ddb459522",
+  "mappedGuid" : "022005ef-7995-45c7-9394-c608a3586d08",
+  "counter" : 0,
+  "additionalMapping" : {
+    "22f9083b-ba3a-4c4f-b718-cc9ac6c7abed" : "325dfa67-865c-4608-b172-898d641d5958",
+    "59cf94dc-0d81-4554-9f25-dd67959ff5da" : "82c5c633-3426-48f4-b1c5-65d4175a3c17",
+    "97d6a315-e873-44a8-a3ed-02a80f156582" : "a6b214b4-3d48-4d55-9500-94cd5574bf26"
+  }
+} ]
