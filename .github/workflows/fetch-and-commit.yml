@@ -32,22 +32,6 @@ jobs:
       - name: Install CS Tools
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
-      - name: Delete old TML files
-        run: |
-          find . -type f -name "*.tml" -delete
-
-      # ✅ STEP 2: Stage the deletion of TMLs
-      - name: Stage deletions
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add -u
-
-      # ✅ STEP 3: Commit the deletions
-      - name: Commit deleted files
-        run: |
-          git commit -m "Removed untagged TMLs before re-fetching" || echo "Nothing to commit"
-
       - name: Run the GIT COMMIT command
         run: |
           cs_tools tools git branches commit \
