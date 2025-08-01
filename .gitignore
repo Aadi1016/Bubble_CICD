@@ -2,5 +2,4 @@
 *.commit/
 *.mapping/
 
-# Ignore the deploy workflow file
-.github/workflows/deploy-changes.yml
+
