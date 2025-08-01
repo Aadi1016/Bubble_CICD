@@ -32,7 +32,7 @@ jobs:
       - name: Install CS Tools
         run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
 
-       - name: Delete old TML files
+      - name: Delete old TML files
         run: |
           find . -type f -name "*.tml" -delete
 
@@ -47,7 +47,7 @@ jobs:
       - name: Commit deleted files
         run: |
           git commit -m "Removed untagged TMLs before re-fetching" || echo "Nothing to commit"
-          
+
       - name: Run the GIT COMMIT command
         run: |
           cs_tools tools git branches commit \
