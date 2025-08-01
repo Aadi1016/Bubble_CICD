@@ -42,4 +42,5 @@ jobs:
           cs_tools tools git branches deploy \
           --branch ${{ env.TS_ENV_NAME }} \
           --org ${{ env.TS_DESTINATION_ORG_ID }} \
+          --log-errors \
           --config ENV:
