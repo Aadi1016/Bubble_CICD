@@ -1,0 +1,43 @@
+guid: 94f38e78-e3ad-4663-97e0-5d795385909b
+answer:
+  name: Total quantity purchased by state and region
+  tables:
+  - id: (Sample) Retail - Apparel
+    name: (Sample) Retail - Apparel
+    fqn: cd252e5c-b552-49a8-821d-3eadaa049cca
+  search_query: "[quantity purchased] [region] [state]"
+  answer_columns:
+  - name: Total quantity purchased
+  - name: region
+  - name: state
+  table:
+    table_columns:
+    - column_id: Total quantity purchased
+      show_headline: false
+    - column_id: region
+      show_headline: false
+    - column_id: state
+      show_headline: false
+    ordered_column_ids:
+    - region
+    - state
+    - Total quantity purchased
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: STACKED_COLUMN
+    chart_columns:
+    - column_id: Total quantity purchased
+    - column_id: region
+    - column_id: state
+    axis_configs:
+    - x:
+      - state
+      "y":
+      - Total quantity purchased
+      color:
+      - region
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"region\",\"columnProperty\": {}},{\"columnId\": \"state\",\"columnProperty\": {}},{\"columnId\": \"Total quantity purchased\",\"columnProperty\": {}},{\"columnId\": \"Measure names\",\"columnProperty\": {}},{\"columnId\": \"Measure values\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"09b7c98d-c7d6-4868-b890-55530c4c771d\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total quantity purchased\"],\"isOpposite\": false}},{\"id\": \"938e6142-5296-4be0-b8bf-0018e2b81837\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"state\"]}}],\"systemSeriesColors\": [{\"serieName\": \"east\",\"color\": \"#06BF7F\"},{\"serieName\": \"midwest\",\"color\": \"#FCC838\"},{\"serieName\": \"south\",\"color\": \"#48D1E0\"},{\"serieName\": \"southwest\",\"color\": \"#71A1F4\"},{\"serieName\": \"west\",\"color\": \"#2E75F0\"}]}"
+  display_mode: CHART_MODE
+  dynamic_name: Total quantity purchased by state and region
