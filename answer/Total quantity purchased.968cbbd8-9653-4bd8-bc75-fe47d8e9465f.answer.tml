@@ -1,0 +1,28 @@
+guid: 968cbbd8-9653-4bd8-bc75-fe47d8e9465f
+answer:
+  name: Total quantity purchased
+  tables:
+  - id: (Sample) Retail - Apparel
+    name: (Sample) Retail - Apparel
+    fqn: cd252e5c-b552-49a8-821d-3eadaa049cca
+  search_query: "[quantity purchased]"
+  answer_columns:
+  - name: Total quantity purchased
+  table:
+    table_columns:
+    - column_id: Total quantity purchased
+      show_headline: false
+    ordered_column_ids:
+    - Total quantity purchased
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: KPI
+    chart_columns:
+    - column_id: Total quantity purchased
+    axis_configs:
+    - "y":
+      - Total quantity purchased
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {\"pivotSummariesState\": {}}},\"columnProperties\": [{\"columnId\": \"Total quantity purchased\",\"columnProperty\": {}},{\"columnId\": \"Measure names\",\"columnProperty\": {}},{\"columnId\": \"Measure values\",\"columnProperty\": {}}],\"axisProperties\": [{\"id\": \"314f8fa1-652b-4a91-9c46-d57d24634c6f\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"Total quantity purchased\"],\"isOpposite\": false}},{\"id\": \"8f491590-4d7b-4a2f-a1f9-f16f08d7f274\",\"properties\": {\"axisType\": \"X\"}}]}"
+  display_mode: CHART_MODE
