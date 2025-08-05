@@ -13,6 +13,11 @@
     "97d6a315-e873-44a8-a3ed-02a80f156582" : "9ff3f4cb-0f7f-4368-87dc-078c435d31c4"
   }
 }, {
+  "originalGuid" : "4ba234c0-4be5-4dc5-a5af-f8cb4592e333",
+  "mappedGuid" : "4ba234c0-4be5-4dc5-a5af-f8cb4592e333",
+  "counter" : 0,
+  "additionalMapping" : { }
+}, {
   "originalGuid" : "94f38e78-e3ad-4663-97e0-5d795385909b",
   "mappedGuid" : "dbe17a29-f2fe-467d-b320-7c0627bb5d57",
   "counter" : 0,
