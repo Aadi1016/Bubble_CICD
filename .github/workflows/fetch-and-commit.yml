@@ -1,45 +1,19 @@
 name: Fetch and Commit
-
-on:    
-  # Allow triggering manually
+on:
   workflow_dispatch:
-
-env:
-  CS_TOOLS_VERSION: v1.6.4
-  CS_TOOLS_THOUGHTSPOT__URL: ${{ secrets.DEV_THOUGHTSPOT_URL }}
-  CS_TOOLS_THOUGHTSPOT__USERNAME: ${{ secrets.DEV_THOUGHTSPOT_USERNAME }}
-  CS_TOOLS_THOUGHTSPOT__SECRET_KEY: ${{ secrets.DEV_THOUGHTSPOT_SECRET_KEY }}
-
-  TS_ENV_NAME: ts-dev
-  TS_SOURCE_ORG_ID: 1432393443
-  TS_OBJECT_TAG: version-controlled
-  TS_COMMIT_MESSAGE: "AUTOMATED >> TS-CI '${{ github.event.workflow }}' @ ${{ github.event.repository.updated_at }}"
-
 jobs:
-  run_commit_api: 
+  run_commit_api:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout ts-dev branch
+      - name: Checkout Thoughtspot_commit branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ env.TS_ENV_NAME }}
-
+          ref: Thoughtspot_commit  # Your branch name
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
-
-      - name: Install CS Tools
-        run: pip install "cs_tools[cli] @ https://github.com/thoughtspot/cs_tools/archive/${{ env.CS_TOOLS_VERSION }}.zip"
-
-      - name: Run the GIT COMMIT command
-        run: |
-          cs_tools tools git branches commit \
-          --tags "${{ env.TS_OBJECT_TAG }}" \
-          --comment "${{ env.TS_COMMIT_MESSAGE }}" \
-          --delete-aware \
-          --org "${{ env.TS_SOURCE_ORG_ID }}" \
-          --metadata-types "TABLE,LIVEBOARD,SQL_VIEW,MODEL,ANSWER" \
-          --config ENV:
-  
-          
+      - name: Install dependencies
+        run: pip install -r requirements.txt || pip install requests pandas python-dotenv
+      - name: Run commit.py
+        run: python commit.py
