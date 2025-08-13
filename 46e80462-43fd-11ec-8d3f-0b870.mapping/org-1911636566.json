@@ -15,11 +15,18 @@
 }, {
   "originalGuid" : "4ba234c0-4be5-4dc5-a5af-f8cb4592e333",
   "mappedGuid" : "4ba234c0-4be5-4dc5-a5af-f8cb4592e333",
-  "counter" : 0,
-  "additionalMapping" : { }
+  "counter" : 1,
+  "additionalMapping" : {
+    "b666b1bf-f209-4289-9319-5e736fdb9d17" : "7258a0f5-0d84-4f04-a01f-69e946156339"
+  }
 }, {
   "originalGuid" : "b7837f5b-5d2d-4ab9-a774-23c1b4dd7374",
   "mappedGuid" : "3c321db3-7502-4c44-9301-3a88d9c3ddbe",
+  "counter" : 0,
+  "additionalMapping" : { }
+}, {
+  "originalGuid" : "56925268-c710-4646-a20d-1d18580f9bea",
+  "mappedGuid" : "ef1235c9-44a0-4d88-bdf0-a4235706bd7c",
   "counter" : 0,
   "additionalMapping" : { }
 }, {
